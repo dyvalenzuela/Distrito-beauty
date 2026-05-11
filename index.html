@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon_atoms.ico" type="image/x-icon">
+    <title>Distrito Beauty - Salón de Belleza</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- ========== HEADER / NAVIGATION ========== -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-spa"></i>
+                <span>Distrito Beauty</span>
+            </div>
+            <nav class="nav" id="mainNav">
+                <a href="#" class="nav-link active" data-page="home"><i class="fas fa-home"></i> Inicio</a>
+                <a href="#" class="nav-link" data-page="services"><i class="fas fa-paint-brush"></i> Servicios</a>
+                <a href="#" class="nav-link" data-page="booking"><i class="fas fa-calendar-alt"></i> Reservar Cita</a>
+                <a href="#" class="nav-link" data-page="admin"><i class="fas fa-user-shield"></i> Admin</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ========== PAGE: HOME ========== -->
+    <section class="page active" id="page-home">
+        <!-- Hero -->
+        <div class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Bienvenida a <span class="highlight">Distrito Beauty</span></h1>
+                <p>Tu salón de Belleza de confianza. Reserva tu cita.</p>
+                <button class="btn btn-primary btn-lg" id="heroBookBtn">
+                    <i class="fas fa-calendar-check"></i> Reservar Ahora
+                </button>
+            </div>
+        </div>
+
+        <!-- Services Preview -->
+        <div class="section">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">Ofrecemos una amplia variedad de servicios para el cuidado personal.</p>
+            <div class="services-grid" id="homeServicesGrid"></div>
+            <div class="text-center" style="margin-top: 2rem;">
+                <button class="btn btn-outline" id="viewAllServicesBtn">Ver Todos los Servicios <i
+                        class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Why Us -->
+        <div class="section section-alt">
+            <h2 class="section-title">¿Por qué elegirnos?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-award"></i></div>
+                    <h3>Profesionales Certificadas</h3>
+                    <p>Nuestros Profesionales cuentan con años de experiencia y certificaciones profesionales.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Productos Premium</h3>
+                    <p>Utilizamos solo productos de la más alta calidad .</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Horarios Flexibles</h3>
+                    <p>Agenda tu cita en el horario que mejor se adapte a tu rutina diaria.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>Confirmación por WhatsApp</h3>
+                    <p>Recibe la confirmación de tu cita directamente en tu WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PAGE: SERVICES ========== -->
+    <section class="page" id="page-services">
+        <div class="page-header">
+            <h1><i class="fas fa-paint-brush"></i> Nuestros Servicios</h1>
+            <p>Descubre todos los tratamientos que tenemos para ti</p>
+        </div>
+        <div class="section">
+            <div class="services-full-grid" id="servicesFullGrid"></div>
+        </div>
+    </section>
+
+    <!-- ========== PAGE: BOOKING ========== -->
+    <section class="page" id="page-booking">
+        <div class="page-header">
+            <h1><i class="fas fa-calendar-alt"></i> Reservar Cita</h1>
+            <p>Selecciona el servicio, Profesional, día y hora de tu preferencia</p>
+        </div>
+        <div class="section">
+            <!-- Progress Bar -->
+            <div class="booking-progress">
+                <div class="progress-step active" data-step="1">
+                    <div class="progress-circle">1</div>
+                    <span>Servicio</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="2">
+                    <div class="progress-circle">2</div>
+                    <span>Profesional</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="3">
+                    <div class="progress-circle">3</div>
+                    <span>Fecha y Hora</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="4">
+                    <div class="progress-circle">4</div>
+                    <span>Tus Datos</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="5">
+                    <div class="progress-circle">5</div>
+                    <span>Pago</span>
+                </div>
+            </div>
+
+            <div class="booking-container">
+                <!-- Step 1: Service -->
+                <div class="booking-step active" id="step-1">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <h3>Selecciona un Servicio</h3>
+                    </div>
+                    <div class="service-select-grid" id="bookingServiceGrid"></div>
+                </div>
+
+                <!-- Step 2: Manicurist -->
+                <div class="booking-step" id="step-2">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <h3>Selecciona un Profesional </h3>
+                    </div>
+                    <div class="manicurist-grid" id="manicuristGrid"></div>
+                </div>
+
+                <!-- Step 3: Date & Time -->
+                <div class="booking-step" id="step-3">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <h3>Selecciona Día y Hora</h3>
+                    </div>
+                    <div class="calendar-container">
+                        <div class="calendar-nav">
+                            <button class="btn btn-sm" id="prevWeekBtn"><i class="fas fa-chevron-left"></i></button>
+                            <span class="week-label" id="weekLabel"></span>
+                            <button class="btn btn-sm" id="nextWeekBtn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="week-grid" id="weekGrid"></div>
+                        <div class="time-slots-container" id="timeSlotsContainer">
+                            <p class="hint-text">Selecciona un día para ver los horarios disponibles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Client Info -->
+                <div class="booking-step" id="step-4">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <h3>Tus Datos</h3>
+                    </div>
+                    <form class="client-form" id="clientForm">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Nombre Completo</label>
+                            <input type="text" id="clientName" placeholder="Ingresa tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Teléfono</label>
+                            <input type="tel" id="clientPhone" placeholder="Ej: +56 9 1234 5678" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email (opcional)</label>
+                            <input type="email" id="clientEmail" placeholder="tu@email.com">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Step 5: Payment (Webpay) -->
+                <div class="booking-step" id="step-5">
+                    <div class="step-header">
+                        <div class="step-number">5</div>
+                        <h3>Pago de Abono con Webpay</h3>
+                    </div>
+                    <div class="payment-section">
+                        <div class="payment-info-card">
+                            <div class="payment-info-header">
+                                <div class="webpay-logo-fallback">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Webpay Plus</span>
+                                </div>
+                            </div>
+                            <div class="payment-info-body">
+                                <p class="payment-description">
+                                    Para confirmar tu cita, debes pagar un <strong>abono del 30%</strong> del valor del
+                                    servicio.
+                                    El saldo restante se paga directamente en el salón.
+                                </p>
+                                <div class="payment-breakdown">
+                                    <div class="payment-row">
+                                        <span>Servicio:</span>
+                                        <span id="payServiceName">-</span>
+                                    </div>
+                                    <div class="payment-row">
+                                        <span>Precio total:</span>
+                                        <span id="payTotalPrice">$0</span>
+                                    </div>
+                                    <div class="payment-row payment-row-highlight">
+                                        <span>Abono (30%):</span>
+                                        <span id="payDepositAmount">$0</span>
+                                    </div>
+                                    <div class="payment-row">
+                                        <span>Saldo en salón:</span>
+                                        <span id="payRemainingAmount">$0</span>
+                                    </div>
+                                </div>
+                                <div class="payment-methods">
+                                    <span class="payment-method-label">Métodos aceptados:</span>
+                                    <div class="payment-icons">
+                                        <i class="fab fa-cc-visa" title="Visa"></i>
+                                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                                        <i class="fas fa-university" title="Redcompra"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-webpay" id="payWithWebpayBtn">
+                            <i class="fas fa-lock"></i> Pagar Abono con Webpay
+                        </button>
+                        <p class="payment-secure-text"><i class="fas fa-shield-alt"></i> Pago seguro procesado por
+                            Transbank</p>
+                    </div>
+                </div>
+
+                <!-- Booking Summary -->
+                <div class="booking-summary" id="bookingSummary">
+                    <h3><i class="fas fa-receipt"></i> Resumen de tu Cita</h3>
+                    <div class="summary-details" id="summaryDetails"></div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="booking-nav">
+                    <button class="btn btn-outline" id="prevStepBtn" style="display:none;">
+                        <i class="fas fa-arrow-left"></i> Anterior
+                    </button>
+                    <button class="btn btn-primary" id="nextStepBtn">
+                        Siguiente <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PAGE: ADMIN ========== -->
+    <section class="page" id="page-admin">
+        <div class="page-header">
+            <h1><i class="fas fa-user-shield"></i> Panel de Administración</h1>
+            <p>Gestión de citas, servicios y clientes</p>
+        </div>
+        <div class="section">
+            <!-- Admin Login -->
+            <div class="admin-login" id="adminLogin">
+                <div class="login-card">
+                    <div class="login-icon"><i class="fas fa-lock"></i></div>
+                    <h2>Acceso Administrador</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label>Usuario</label>
+                            <input type="text" id="adminUser" placeholder="Usuario" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password" id="adminPass" placeholder="Contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-sign-in-alt"></i> Ingresar
+                        </button>
+                    </form>
+                    <p class="login-hint">Demo: admin / admin123</p>
+                </div>
+            </div>
+
+            <!-- Admin Dashboard -->
+            <div class="admin-dashboard" id="adminDashboard" style="display:none;">
+                <div class="admin-header">
+                    <h2>Dashboard</h2>
+                    <button class="btn btn-outline btn-sm" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                    </button>
+                </div>
+
+                <!-- Admin Tabs -->
+                <div class="admin-tabs">
+                    <button class="admin-tab active" data-tab="overview"><i class="fas fa-chart-bar"></i>
+                        Resumen</button>
+                    <button class="admin-tab" data-tab="appointments"><i class="fas fa-calendar-check"></i>
+                        Citas</button>
+                    <button class="admin-tab" data-tab="manage-services"><i class="fas fa-paint-brush"></i>
+                        Servicios</button>
+                    <button class="admin-tab" data-tab="manage-manicurists"><i class="fas fa-user-friends"></i>
+                        Manicuristas</button>
+                    <button class="admin-tab" data-tab="clients"><i class="fas fa-users"></i> Clientes</button>
+                </div>
+
+                <!-- Tab: Overview -->
+                <div class="admin-tab-content active" id="tab-overview">
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-number" id="totalAppointments">0</span>
+                                <span class="stat-label">Citas Totales</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon stat-icon-hours"><i class="fas fa-clock"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-number" id="totalHours">0</span>
+                                <span class="stat-label">Horas Trabajadas</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon stat-icon-money"><i class="fas fa-dollar-sign"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-number" id="totalEarnings">$0</span>
+                                <span class="stat-label">Ingresos Totales</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon stat-icon-clients"><i class="fas fa-users"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-number" id="totalClients">0</span>
+                                <span class="stat-label">Clientes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter by Manicurist -->
+                    <div class="admin-filter">
+                        <label><i class="fas fa-filter"></i> Filtrar por Profesional:</label>
+                        <select id="filterManicurist">
+                            <option value="all">Todas</option>
+                        </select>
+                    </div>
+
+                    <!-- Manicurist Reports -->
+                    <div class="manicurist-reports" id="manicuristReports"></div>
+                </div>
+
+                <!-- Tab: Appointments -->
+                <div class="admin-tab-content" id="tab-appointments">
+                    <div class="appointments-section">
+                        <div class="appointments-header">
+                            <h3><i class="fas fa-list"></i> Citas Registradas</h3>
+                            <div class="admin-filter-inline">
+                                <select id="filterAppointmentStatus">
+                                    <option value="all">Todos los estados</option>
+                                    <option value="confirmed">Confirmadas</option>
+                                    <option value="completed">Completadas</option>
+                                    <option value="cancelled">Canceladas</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="appointments-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Cliente</th>
+                                        <th>Teléfono</th>
+                                        <th>Servicio</th>
+                                        <th>Profesional</th>
+                                        <th>Total</th>
+                                        <th>Abono</th>
+                                        <th>Saldo</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appointmentsTableBody"></tbody>
+                            </table>
+                        </div>
+                        <p class="empty-message" id="emptyMessage" style="display:none;">No hay citas registradas aún.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tab: Manage Services -->
+                <div class="admin-tab-content" id="tab-manage-services">
+                    <div class="manage-section">
+                        <div class="manage-header">
+                            <h3><i class="fas fa-paint-brush"></i> Gestión de Servicios</h3>
+                            <button class="btn btn-primary btn-sm" id="addServiceBtn">
+                                <i class="fas fa-plus"></i> Agregar Servicio
+                            </button>
+                        </div>
+                        <div class="manage-grid" id="manageServicesGrid"></div>
+                    </div>
+                </div>
+
+                <!-- Tab: Manage Manicurists -->
+                <div class="admin-tab-content" id="tab-manage-manicurists">
+                    <div class="manage-section">
+                        <div class="manage-header">
+                            <h3><i class="fas fa-user-friends"></i> Gestión de Personal</h3>
+                            <button class="btn btn-primary btn-sm" id="addManicuristBtn">
+                                <i class="fas fa-plus"></i> Agregar Profesional
+                            </button>
+                        </div>
+                        <div class="manage-mani-grid" id="manageManicuristsGrid"></div>
+                    </div>
+                </div>
+
+                <!-- Tab: Clients -->
+                <div class="admin-tab-content" id="tab-clients">
+                    <div class="appointments-section">
+                        <h3><i class="fas fa-users"></i> Clientes Registrados</h3>
+                        <div class="table-responsive">
+                            <table class="appointments-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Teléfono</th>
+                                        <th>Email</th>
+                                        <th>Citas</th>
+                                        <th>Registrado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="clientsTableBody"></tbody>
+                            </table>
+                        </div>
+                        <p class="empty-message" id="emptyClientsMessage" style="display:none;">No hay clientes
+                            registrados aún.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="logo footer-logo">
+                    <i class="fas fa-spa"></i>
+                    <span>Distrito Beauty</span>
+                </div>
+                <p>Tu salón de Belleza de confianza y cuidado Personal.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Horario</h4>
+                <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                <p>Sábado: 9:00 AM - 4:00 PM</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fab fa-whatsapp"></i> +569 3442 2802</p>
+                <p><i class="fas fa-envelope"></i> info@glamournails.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Parinacota #885 , La Florida</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DVGCode. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/56934422802" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Webpay Modal -->
+    <div class="modal-overlay" id="webpayModal">
+        <div class="webpay-modal">
+            <div class="webpay-modal-header">
+                <div class="webpay-modal-logo">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Webpay Plus</span>
+                </div>
+                <button class="webpay-close-btn" id="closeWebpayModal">&times;</button>
+            </div>
+            <div class="webpay-transaction-info">
+                <div class="webpay-merchant">
+                    <span class="merchant-label">Comercio:</span>
+                    <span class="merchant-name">Distrito Beauty</span>
+                </div>
+                <div class="webpay-amount-display">
+                    <span class="amount-label">Monto a pagar:</span>
+                    <span class="amount-value" id="webpayAmountDisplay">$0</span>
+                </div>
+                <div class="webpay-order">
+                    <span class="order-label">Orden:</span>
+                    <span class="order-number" id="webpayOrderNumber">#000000</span>
+                </div>
+            </div>
+            <div class="webpay-form-container" id="webpayFormContainer">
+                <h4>Selecciona tu medio de pago</h4>
+                <div class="payment-type-tabs">
+                    <button class="payment-tab active" data-type="credit" id="tabCredit">
+                        <i class="fas fa-credit-card"></i> Tarjeta de Crédito
+                    </button>
+                    <button class="payment-tab" data-type="debit" id="tabDebit">
+                        <i class="fas fa-university"></i> Redcompra
+                    </button>
+                </div>
+                <form class="webpay-form" id="webpayForm">
+                    <div class="form-group">
+                        <label>Número de Tarjeta</label>
+                        <div class="card-input-wrapper">
+                            <input type="text" id="cardNumber" placeholder="•••• •••• •••• ••••" maxlength="19"
+                                required>
+                            <i class="fab fa-cc-visa card-brand-icon" id="cardBrandIcon"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Vencimiento</label>
+                            <input type="text" id="cardExpiry" placeholder="MM/AA" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" id="cardCvv" placeholder="•••" maxlength="4" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre en la Tarjeta</label>
+                        <input type="text" id="cardName" placeholder="Como aparece en la tarjeta" required>
+                    </div>
+                    <div class="form-group" id="installmentsGroup">
+                        <label>Cuotas</label>
+                        <select id="cardInstallments">
+                            <option value="0">Sin cuotas (Débito)</option>
+                            <option value="1">1 cuota</option>
+                            <option value="3">3 cuotas</option>
+                            <option value="6">6 cuotas</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-webpay-pay">
+                        <i class="fas fa-lock"></i> Pagar <span id="webpayPayBtnAmount">$0</span>
+                    </button>
+                </form>
+            </div>
+            <div class="webpay-processing" id="webpayProcessing" style="display:none;">
+                <div class="processing-spinner"></div>
+                <p>Procesando tu pago...</p>
+                <span class="processing-hint">No cierres esta ventana</span>
+            </div>
+            <div class="webpay-success" id="webpaySuccess" style="display:none;">
+                <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+                <h3>¡Pago Exitoso!</h3>
+                <p>Tu abono ha sido procesado correctamente.</p>
+                <div class="success-details">
+                    <div class="success-row">
+                        <span>Código autorización:</span>
+                        <span id="authCode">-</span>
+                    </div>
+                    <div class="success-row">
+                        <span>Monto pagado:</span>
+                        <span id="paidAmount">$0</span>
+                    </div>
+                    <div class="success-row">
+                        <span>Fecha:</span>
+                        <span id="paymentDate">-</span>
+                    </div>
+                </div>
+                <button class="btn btn-whatsapp" id="successWhatsappBtn">
+                    <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+                </button>
+            </div>
+            <div class="webpay-modal-footer">
+                <i class="fas fa-shield-alt"></i>
+                <span>Transacción segura · Transbank S.A.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Modal (Admin) -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="service-modal">
+            <div class="service-modal-header">
+                <h3 id="serviceModalTitle">Agregar Servicio</h3>
+                <button class="webpay-close-btn" id="closeServiceModal">&times;</button>
+            </div>
+            <form class="service-modal-form" id="serviceForm">
+                <div class="form-group">
+                    <label>Nombre del Servicio</label>
+                    <input type="text" id="svcName" placeholder="Ej: Manicure Básica" required>
+                </div>
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <input type="text" id="svcDescription" placeholder="Descripción del servicio" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Precio (CLP)</label>
+                        <input type="number" id="svcPrice" placeholder="15000" min="1000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Duración (min)</label>
+                        <input type="number" id="svcDuration" placeholder="45" min="15" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Ícono (Font Awesome)</label>
+                    <input type="text" id="svcIcon" placeholder="fas fa-hand-sparkles" value="fas fa-hand-sparkles">
+                </div>
+                <input type="hidden" id="svcEditId" value="">
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-save"></i> Guardar Servicio
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Manicurist Modal -->
+    <div class="modal-overlay" id="manicuristModal">
+        <div class="service-modal">
+            <div class="service-modal-header">
+                <h3 id="maniModalTitle">Agregar Personal</h3>
+                <button class="webpay-close-btn" id="closeManicuristModal">&times;</button>
+            </div>
+            <form class="service-modal-form" id="manicuristForm">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" id="maniName" placeholder="Ej: María López" required>
+                </div>
+                <div class="form-group">
+                    <label>Especialidad</label>
+                    <input type="text" id="maniSpecialty" placeholder="Ej: Nail Art & Acrílicas" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Emoji</label>
+                        <input type="text" id="maniEmoji" placeholder="💅" value="💅">
+                    </div>
+                    <div class="form-group">
+                        <label>Comisión (%)</label>
+                        <input type="number" id="maniCommission" placeholder="50" min="0" max="100" value="50" required>
+                    </div>
+                </div>
+                <input type="hidden" id="maniEditId" value="">
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-save"></i> Guardar Profesional
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Schedule Modal -->
+    <div class="modal-overlay" id="scheduleModal">
+        <div class="service-modal" style="max-width:550px;">
+            <div class="service-modal-header">
+                <h3><i class="fas fa-clock"></i> Horario de <span id="scheduleManicuristName"></span></h3>
+                <button class="webpay-close-btn" id="closeScheduleModal">&times;</button>
+            </div>
+            <div class="service-modal-form">
+                <input type="hidden" id="scheduleManicuristId" value="">
+                <p style="font-size:0.85rem;color:#888;margin-bottom:1rem;">Configura los días y horarios de trabajo</p>
+                <div class="schedule-grid">
+                    <div class="schedule-row schedule-header-row">
+                        <span>Día</span><span>Activo</span><span>Entrada</span><span>Salida</span>
+                    </div>
+                    <div class="schedule-row">
+                        <span>Lunes</span>
+                        <label class="toggle-switch"><input type="checkbox" id="sched_lun_active" checked><span class="toggle-slider"></span></label>
+                        <input type="time" id="sched_lun_start" value="09:00">
+                        <input type="time" id="sched_lun_end" value="18:00">
+                    </div>
+                    <div class="schedule-row">
+                        <span>Martes</span>
+                        <label class="toggle-switch"><input type="checkbox" id="sched_mar_active" checked><span class="toggle-slider"></span></label>
+                        <input type="time" id="sched_mar_start" value="09:00">
+                        <input type="time" id="sched_mar_end" value="18:00">
+                    </div>
+                    <div class="schedule-row">
+                        <span>Miércoles</span>
+                        <label class="toggle-switch"><input type="checkbox" id="sched_mie_active" checked><span class="toggle-slider"></span></label>
+                        <input type="time" id="sched_mie_start" value="09:00">
+                        <input type="time" id="sched_mie_end" value="18:00">
+                    </div>
+                    <div class="schedule-row">
+                        <span>Jueves</span>
+                        <label class="toggle-switch"><input type="checkbox" id="sched_jue_active" checked><span class="toggle-slider"></span></label>
+                        <input type="time" id="sched_jue_start" value="09:00">
+                        <input type="time" id="sched_jue_end" value="18:00">
+                    </div>
+                    <div class="schedule-row">
+                        <span>Viernes</span>
+                        <label class="toggle-switch"><input type="checkbox" id="sched_vie_active" checked><span class="toggle-slider"></span></label>
+                        <input type="time" id="sched_vie_start" value="09:00">
+                        <input type="time" id="sched_vie_end" value="18:00">
+                    </div>
+                    <div class="schedule-row">
+                        <span>Sábado</span>
+                        <label class="toggle-switch"><input type="checkbox" id="sched_sab_active" checked><span class="toggle-slider"></span></label>
+                        <input type="time" id="sched_sab_start" value="09:00">
+                        <input type="time" id="sched_sab_end" value="16:00">
+                    </div>
+                    <div class="schedule-row">
+                        <span>Domingo</span>
+                        <label class="toggle-switch"><input type="checkbox" id="sched_dom_active"><span class="toggle-slider"></span></label>
+                        <input type="time" id="sched_dom_start" value="09:00">
+                        <input type="time" id="sched_dom_end" value="14:00">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" id="saveScheduleBtn" style="margin-top:1.2rem;">
+                    <i class="fas fa-save"></i> Guardar Horario
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Block Slot Modal -->
+    <div class="modal-overlay" id="blockSlotModal">
+        <div class="service-modal" style="max-width:500px;">
+            <div class="service-modal-header">
+                <h3><i class="fas fa-ban"></i> Bloqueos de <span id="blockSlotManicuristName"></span></h3>
+                <button class="webpay-close-btn" id="closeBlockSlotModal">&times;</button>
+            </div>
+            <div class="service-modal-form">
+                <input type="hidden" id="blockSlotManicuristId" value="">
+                <p style="font-size:0.85rem;color:#888;margin-bottom:1rem;">Bloquea días completos u horas específicas para que no estén disponibles en las reservas</p>
+                <form id="blockSlotForm">
+                    <div class="form-group">
+                        <label>Fecha</label>
+                        <input type="date" id="blockSlotDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="blockSlotAllDay"> Bloquear todo el día
+                        </label>
+                    </div>
+                    <div class="form-group" id="blockSlotTimeGroup">
+                        <label>Hora a bloquear</label>
+                        <select id="blockSlotTime">
+                            <option value="">Selecciona hora</option>
+                            <option value="9:00 AM">9:00 AM</option>
+                            <option value="10:00 AM">10:00 AM</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="12:00 PM">12:00 PM</option>
+                            <option value="1:00 PM">1:00 PM</option>
+                            <option value="2:00 PM">2:00 PM</option>
+                            <option value="3:00 PM">3:00 PM</option>
+                            <option value="4:00 PM">4:00 PM</option>
+                            <option value="5:00 PM">5:00 PM</option>
+                            <option value="6:00 PM">6:00 PM</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-ban"></i> Agregar Bloqueo
+                    </button>
+                </form>
+                <h4 style="margin-top:1.5rem;margin-bottom:0.8rem;font-size:0.95rem;">Bloqueos activos</h4>
+                <div class="blocked-slots-list" id="blockedSlotsList">
+                    <p class="hint-text" style="padding:1rem;">No hay bloqueos registrados</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>
